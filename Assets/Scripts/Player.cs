@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float _firerate = 0.6f;
     private float _canFire = 0.15f;
+    [SerializeField]
+    private int _lives = 3;
     void Start()
 
     {
@@ -64,6 +66,15 @@ public class Player : MonoBehaviour
         else if (transform.position.x < -11.3f)
         {
             transform.position = new Vector3(11.3f, transform.position.y, 0);
+        }
+    }
+    public void Damage()
+    {
+        _lives = _lives - 1;
+
+        if(_lives < 1)//if lives are below 1, then destroy player
+        {
+            Destroy(this.gameObject);
         }
     }
 }
