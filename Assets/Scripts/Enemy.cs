@@ -34,10 +34,15 @@ public class Enemy : MonoBehaviour
         if(other.tag == "Player")
         {
             //accesses the Player script component of the other object to call the damage method
-            Player player = other.transform.GetComponent<Player>();
+            Player player = other.transform.GetComponent<Player>(); 
            if( player != null)//null check
             {
                 player.Damage();
+               
+            }
+            else
+            {
+           
             }
             Destroy(this.gameObject);
         }
